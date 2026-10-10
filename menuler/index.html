@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@400;500&display=swap">
+<link rel="preload" as="image" href="/assets/img/menu-tabagi-900.webp" imagesrcset="/assets/img/menu-tabagi-900.webp 900w, /assets/img/menu-tabagi-1800.webp 1800w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="/assets/stil.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana sayfa","item":"https://pinardugundavet.com/"},{"@type":"ListItem","position":2,"name":"Menüler"}]}</script>
 </head>
@@ -43,20 +44,22 @@
 </header>
 <main id="icerik">
 
-<div class="sar"><nav aria-label="Neredesiniz"><ol class="kirinti"><li><a href="/">Ana sayfa</a></li><li aria-current="page">Menüler</li></ol></nav></div>
 
-<div class="sar">
-  <header class="ic-baslik">
-    <div class="baklava" aria-hidden="true"><i></i><i></i><i></i></div>
-    <p class="ust-yazi">Menüler</p>
-    <h1>Yemekli ya da <em>kokteyl</em></h1>
-    <p>İki yemekli ve üç pastalı menümüz var. İsteğe göre döner, ızgara ve ordövr tabağıyla genişletebilirsiniz.</p>
-  </header>
-</div>
-<section class="bolum bolum--ust-yok">
+<section class="sk">
+  <div class="sk__gorsel"><img src="/assets/img/menu-tabagi-900.webp" srcset="/assets/img/menu-tabagi-900.webp 900w, /assets/img/menu-tabagi-1800.webp 1800w" sizes="100vw" alt="Yemekli menü: tavuk sote, pilav, baklava ve salata" loading="eager" decoding="async" fetchpriority="high"></div>
+  <div class="sar sk__ic">
+    <div class="giris giris--1"><nav aria-label="Neredesiniz"><ol class="kirinti"><li><a href="/">Ana sayfa</a></li><li aria-current="page">Menüler</li></ol></nav></div>
+    <div class="giris giris--1"><div class="baklava" aria-hidden="true"><i></i><i></i><i></i></div></div>
+    <p class="ust-yazi giris giris--2">Menüler</p>
+    <h1 class="giris giris--2">Yemekli ya da <em>kokteyl</em></h1>
+    <p class="sk__metin giris giris--3">İki yemekli ve üç pastalı menümüz var. İsteğe göre döner, ızgara ve ordövr tabağıyla genişletebilirsiniz.</p>
+  </div>
+</section>
+<div class="serit" aria-hidden="true"><div class="serit__iz"><div class="serit__grup"><span>Düğün</span><i></i><span>Nişan</span><i></i><span>Kına</span><i></i><span>Sünnet</span><i></i><span>Söz</span><i></i><span>Davet</span><i></i><span>Kokteyl</span><i></i><span>Nikâh</span><i></i></div><div class="serit__grup"><span>Düğün</span><i></i><span>Nişan</span><i></i><span>Kına</span><i></i><span>Sünnet</span><i></i><span>Söz</span><i></i><span>Davet</span><i></i><span>Kokteyl</span><i></i><span>Nikâh</span><i></i></div></div></div>
+<section class="bolum bolum--pudra">
   <div class="sar">
-    <div class="menuler"><article class="menu"><p class="menu__tur">Yemekli</p><h3>Kırmızı et menüsü</h3><ul><li>Et kavurma</li><li>Pirinç pilavı</li><li>Su böreği ya da patates püresi</li><li>Söğüş salata</li><li>Meşrubat ya da ayran</li><li>Cevizli baklava</li><li>Roll ekmek</li><li>Bardak su</li></ul></article><article class="menu"><p class="menu__tur">Yemekli</p><h3>Beyaz et menüsü</h3><ul><li>Tavuk sote</li><li>Pirinç pilavı</li><li>Su böreği ya da patates püresi</li><li>Söğüş salata</li><li>Meşrubat ya da ayran</li><li>Cevizli baklava</li><li>Roll ekmek</li><li>Bardak su</li></ul></article><article class="menu"><p class="menu__tur">Kokteyl</p><h3>Pastalı menü</h3><ul><li>Yaş pasta</li><li>2 tatlı kurabiye</li><li>2 çubuk kraker</li><li>Sınırsız içecek</li></ul><p class="menu__not">İsteğe bağlı, ücret farkıyla su böreği eklenir.</p></article><article class="menu"><p class="menu__tur">Kokteyl</p><h3>Pastalı lüks menü</h3><ul><li>Yaş pasta</li><li>Ekler</li><li>Su böreği</li><li>2 kurabiye</li><li>2 çubuk kraker</li><li>Meşrubat</li><li>Su</li></ul></article><article class="menu"><p class="menu__tur">Kokteyl</p><h3>Dondurmalı pasta menüsü</h3><ul><li>Dondurmalı pasta</li><li>2 tatlı kurabiye</li><li>2 çubuk kraker</li><li>Sınırsız içecek</li></ul><p class="menu__not">İsteğe bağlı, ücret farkıyla su böreği eklenir.</p></article></div>
-    <div class="ekler"><p>İsteğe göre et döner, tavuk döner, karışık ızgara ve ordövr tabağı servis edilir.</p><p>Mevsim salata ve çoban salata seçenekleri vardır.</p></div>
+    <div class="menuler"><article class="menu belir"><p class="menu__tur">Yemekli</p><h3>Kırmızı et menüsü</h3><ul><li>Et kavurma</li><li>Pirinç pilavı</li><li>Su böreği ya da patates püresi</li><li>Söğüş salata</li><li>Meşrubat ya da ayran</li><li>Cevizli baklava</li><li>Roll ekmek</li><li>Bardak su</li></ul></article><article class="menu belir"><p class="menu__tur">Yemekli</p><h3>Beyaz et menüsü</h3><ul><li>Tavuk sote</li><li>Pirinç pilavı</li><li>Su böreği ya da patates püresi</li><li>Söğüş salata</li><li>Meşrubat ya da ayran</li><li>Cevizli baklava</li><li>Roll ekmek</li><li>Bardak su</li></ul></article><article class="menu belir"><p class="menu__tur">Kokteyl</p><h3>Pastalı menü</h3><ul><li>Yaş pasta</li><li>2 tatlı kurabiye</li><li>2 çubuk kraker</li><li>Sınırsız içecek</li></ul><p class="menu__not">İsteğe bağlı, ücret farkıyla su böreği eklenir.</p></article><article class="menu belir"><p class="menu__tur">Kokteyl</p><h3>Pastalı lüks menü</h3><ul><li>Yaş pasta</li><li>Ekler</li><li>Su böreği</li><li>2 kurabiye</li><li>2 çubuk kraker</li><li>Meşrubat</li><li>Su</li></ul></article><article class="menu belir"><p class="menu__tur">Kokteyl</p><h3>Dondurmalı pasta menüsü</h3><ul><li>Dondurmalı pasta</li><li>2 tatlı kurabiye</li><li>2 çubuk kraker</li><li>Sınırsız içecek</li></ul><p class="menu__not">İsteğe bağlı, ücret farkıyla su böreği eklenir.</p></article></div>
+    <div class="ekler belir"><p>İsteğe göre et döner, tavuk döner, karışık ızgara ve ordövr tabağı servis edilir.</p><p>Mevsim salata ve çoban salata seçenekleri vardır.</p></div>
   </div>
 </section>
 

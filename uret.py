@@ -467,7 +467,7 @@ h1 em,h2 em{font-style:italic;color:var(--altin)}
 .ust__ic{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-block:13px}
 .logo{display:flex;flex-direction:column;line-height:1}
 .logo__ad{font-family:var(--baslik);font-size:30px;font-style:italic;letter-spacing:-.01em}
-.logo__alt{font-size:10.5px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--murekkep-3);margin-top:5px}
+.logo__alt{font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--murekkep-3);margin-top:5px}
 .ust__menu{display:flex;align-items:center;gap:2px}
 .ust__menu a{font-size:14.5px;font-weight:500;letter-spacing:.02em;color:var(--murekkep-2);padding:10px 13px;min-height:44px;display:inline-flex;align-items:center}
 .ust__menu a:hover{color:var(--murekkep)}
@@ -571,7 +571,8 @@ h1 em,h2 em{font-style:italic;color:var(--altin)}
 .galeri img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;transition:transform .8s cubic-bezier(.22,.61,.36,1)}
 .galeri a:hover img{transform:scale(1.05)}
 .galeri a:first-child{grid-column:span 2;grid-row:span 2}
-.galeri a:first-child img{aspect-ratio:auto}
+.galeri a:first-child{aspect-ratio:1}
+.galeri a:first-child img{aspect-ratio:auto;height:100%}
 
 /* ---------- isik kutusu ---------- */
 .kutu{position:fixed;inset:0;z-index:80;background:rgba(21,20,19,.95);display:flex;align-items:center;justify-content:center;padding:64px 16px}
@@ -602,7 +603,7 @@ h1 em,h2 em{font-style:italic;color:var(--altin)}
 @media (min-width:760px){.menuler{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1080px){.menuler{grid-template-columns:repeat(3,1fr)}}
 .menu{background:var(--beyaz);border:1px solid var(--cizgi);padding:38px 30px 32px;text-align:center;display:flex;flex-direction:column}
-.menu__tur{font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--altin)}
+.menu__tur{font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--altin)}
 .menu h3{margin-top:12px;font-size:28px}
 .menu ul{list-style:none;margin-top:22px;padding-top:20px;border-top:1px solid var(--cizgi-2)}
 .menu li{padding-block:6px;color:var(--murekkep-2);font-size:16px}
@@ -645,6 +646,7 @@ h1 em,h2 em{font-style:italic;color:var(--altin)}
 .kirinti{list-style:none;display:flex;flex-wrap:wrap;gap:4px 10px;font-size:13px;letter-spacing:.06em;color:var(--murekkep-3);padding-top:28px}
 .kirinti li{display:inline-flex;align-items:center;min-height:28px}
 .kirinti li+li::before{content:"";width:5px;height:5px;transform:rotate(45deg);background:var(--altin-2);margin-right:10px}
+.kirinti a{display:inline-flex;align-items:center;min-height:28px}
 .kirinti a:hover{color:var(--murekkep)}
 .ic-baslik{padding-block:34px 70px;text-align:center}
 .ic-baslik h1{font-size:clamp(40px,6vw,74px);margin-top:16px}
@@ -670,7 +672,7 @@ h1 em,h2 em{font-style:italic;color:var(--altin)}
 .logo--alt .logo__ad{color:#fff}
 .logo--alt .logo__alt{color:rgba(255,255,255,.58)}
 .alt__metin{margin-top:18px;max-width:34ch;line-height:1.7}
-.alt__baslik{font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--altin-2);margin-bottom:10px}
+.alt__baslik{font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--altin-2);margin-bottom:10px}
 .alt__izgara p+p{margin-top:4px}
 .alt__satir{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:13.5px}
 
@@ -784,11 +786,55 @@ h1 em,h2 em{font-style:italic;color:var(--altin)}
 
 /* taftri rozeti */
 .taftri-credit{display:flex;justify-content:center;margin-top:26px}
-.taftri-credit__rozet{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.26);padding:7px 14px;border-radius:4px;line-height:1}
+.taftri-credit__rozet{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.26);padding:2px 14px;border-radius:4px;line-height:1}
 .taftri-credit__etiket{font-size:10.5px;letter-spacing:.16em;opacity:.55}
-.alt .taftri-credit a{font-weight:700;font-size:15px;letter-spacing:.01em;color:#fff;border:0;min-height:0}
+.alt .taftri-credit a{font-weight:700;font-size:15px;letter-spacing:.01em;color:#fff;border:0;min-height:28px;display:inline-flex;align-items:center}
 .alt .taftri-credit a:hover{color:var(--altin-3)}
 @media (max-width:560px){.alt{padding-bottom:96px}}
+
+/* ---------- ic sayfa kahramani ---------- */
+.sk{position:relative;min-height:min(70vh,660px);display:flex;align-items:flex-end;color:#fff;background:var(--gece);overflow:hidden}
+.sk__gorsel{position:absolute;inset:0}
+.sk__gorsel img{width:100%;height:100%;object-fit:cover;animation:yakinlas 14s ease-out forwards}
+.sk::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,15,14,.45) 0%,rgba(16,15,14,.42) 40%,rgba(16,15,14,.88) 100%)}
+.sk__ic{position:relative;z-index:2;padding-block:120px 64px;text-align:center}
+.sk .kirinti{justify-content:center;padding-top:0;margin-bottom:26px;color:rgba(255,255,255,.78)}
+.sk .kirinti a:hover{color:#fff}
+.sk .kirinti li+li::before{background:var(--altin-3)}
+.sk .baklava i{background:var(--altin-3)}
+.sk .baklava i:nth-child(2){background:transparent;border-color:var(--altin-3)}
+.sk .ust-yazi{color:var(--altin-3)}
+.sk h1{font-size:clamp(40px,6.4vw,86px);margin:14px auto 0;max-width:16ch;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+.sk h1 em{background:linear-gradient(100deg,var(--altin-3) 0%,var(--altin-4) 22%,#C9A36A 45%,var(--altin-4) 68%,var(--altin-3) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:parilti 7s linear infinite;padding-right:.06em;text-shadow:none}
+.sk__metin{margin:22px auto 0;max-width:54ch;color:rgba(255,255,255,.88);font-size:clamp(16px,1.5vw,19px)}
+@media (max-width:640px){.sk{min-height:62vh}.sk__ic{padding-block:96px 48px}}
+
+/* koyu bolumde zaman cizelgesi */
+.bolum--gece .bolum__ust h2 em{background:linear-gradient(100deg,var(--altin-3) 0%,var(--altin-4) 22%,#C9A36A 45%,var(--altin-4) 68%,var(--altin-3) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:parilti 7s linear infinite}
+.bolum--gece .zaman{border-top-color:rgba(255,255,255,.16)}
+.bolum--gece .zaman li{border-bottom-color:rgba(255,255,255,.12)}
+.bolum--gece .zaman b{color:var(--altin-3)}
+.bolum--gece .zaman span{color:rgba(255,255,255,.8)}
+
+/* menu kartlari */
+.menu{position:relative;transition:transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .5s,opacity 1s}
+.menu::before{content:"";position:absolute;left:0;right:0;top:-1px;height:3px;background:linear-gradient(90deg,var(--altin),var(--altin-3),var(--altin));transform:scaleX(0);transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+.menu:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(21,20,19,.45)}
+.menu:hover::before{transform:scaleX(1)}
+.js .menuler .belir:nth-child(3n+2){transition-delay:.12s}
+.js .menuler .belir:nth-child(3n){transition-delay:.24s}
+
+/* hizmet gruplari */
+.hizmet-grup h3{border-bottom:0;position:relative}
+.hizmet-grup h3::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,var(--murekkep),var(--altin-2))}
+.js .hizmet-izgara .belir:nth-child(3n+2){transition-delay:.12s}
+.js .hizmet-izgara .belir:nth-child(3n){transition-delay:.24s}
+
+/* iletisim */
+.iletisim__blok a{transition:color var(--gecis),padding var(--gecis)}
+.iletisim__blok a:hover{padding-left:8px}
+.harita{box-shadow:0 30px 60px -40px rgba(21,20,19,.6);outline:1px solid var(--altin-2);outline-offset:10px}
+@media (max-width:640px){.harita{outline-offset:6px}}
 
 @media (prefers-reduced-motion:reduce){
   .giris,.js .belir{opacity:1!important;transform:none!important}
@@ -919,7 +965,7 @@ def favicon():
 # ---------------------------------------------------------------------------
 
 def galeri_html(liste):
-    return '<div class="galeri">%s</div>' % "".join(
+    return '<div class="galeri belir">%s</div>' % "".join(
         '<a href="/assets/img/%s-1800.webp" data-kutu>%s</a>'
         % (ad, resim(ad, alt, boyut="(max-width: 860px) 50vw, 25vw")) for ad, alt in liste)
 
@@ -935,7 +981,7 @@ def organizasyon_kartlari():
 def menu_kartlari():
     ler = []
     for mn in MENULER:
-        ler.append('<article class="menu"><p class="menu__tur">%s</p><h3>%s</h3>'
+        ler.append('<article class="menu belir"><p class="menu__tur">%s</p><h3>%s</h3>'
                    '<ul>%s</ul>%s</article>'
                    % (kacir(mn["tur"]), kacir(mn["ad"]),
                       "".join("<li>%s</li>" % kacir(k) for k in mn["kalemler"]),
@@ -945,7 +991,7 @@ def menu_kartlari():
 
 def hizmet_gruplari(gruplar=None):
     return '<div class="hizmet-izgara">%s</div>' % "".join(
-        '<div class="hizmet-grup"><h3>%s</h3><ul class="liste">%s</ul></div>'
+        '<div class="hizmet-grup belir"><h3>%s</h3><ul class="liste">%s</ul></div>'
         % (kacir(g), "".join("<li>%s</li>" % kacir(x) for x in liste))
         for g, liste in HIZMETLER if gruplar is None or g in gruplar)
 
@@ -1001,6 +1047,23 @@ def ic_baslik(ust_yazi, baslik, metin=""):
     %s
   </header>
 </div>""" % (baklava(), kacir(ust_yazi), baslik, ("<p>%s</p>" % metin) if metin else "")
+
+
+def sayfa_kahramani(kb, ust_yazi, baslik, metin, gorsel, alt_metin):
+    """Ic sayfalarin sinematik basligi: fotograf + kirinti + altin baslik + serit."""
+    return """
+<section class="sk">
+  <div class="sk__gorsel">%s</div>
+  <div class="sar sk__ic">
+    <div class="giris giris--1">%s</div>
+    <div class="giris giris--1">%s</div>
+    <p class="ust-yazi giris giris--2">%s</p>
+    <h1 class="giris giris--2">%s</h1>
+    <p class="sk__metin giris giris--3">%s</p>
+  </div>
+</section>
+%s""" % (resim(gorsel, alt_metin, boyut="100vw", yukle="eager", oncelik=True), kb,
+         baklava(), kacir(ust_yazi), baslik, metin, serit())
 
 
 def bolum_ust(ust_yazi, baslik, metin=""):
@@ -1129,9 +1192,7 @@ def ana_sayfa():
 def salon_sayfasi():
     kb, kld = kirinti([("Ana sayfa", "/"), ("Salon", None)])
     govde = """
-<div class="sar">%s</div>
 %s
-<div class="sar ic-gorsel">%s</div>
 %s
 <section class="bolum">
   <div class="sar">
@@ -1139,6 +1200,7 @@ def salon_sayfasi():
     %s
   </div>
 </section>
+%s
 <section class="bolum bolum--pudra">
   <div class="sar">
     %s
@@ -1146,16 +1208,17 @@ def salon_sayfasi():
   </div>
 </section>
 %s""" % (
-        kb,
-        ic_baslik("Salon", "%d kişilik, <em>ikiye bölünebilen</em> salon" % SALON["kapasite"],
-                  "İsteğe göre %s olmak üzere ayrı girişlerle ikiye ayrılır. Klima ve "
-                  "havalandırma, profesyonel sahne ve ses düzeni, geniş pist."
-                  % SALON["bolunme"]),
-        resim("salon-genel", "Salonun genel görünümü", boyut="100vw", yukle="eager"),
+        sayfa_kahramani(kb, "Salon",
+                        "%d kişilik, <em>ikiye bölünebilen</em> salon" % SALON["kapasite"],
+                        "İsteğe göre %s olmak üzere ayrı girişlerle ikiye ayrılır. Klima ve "
+                        "havalandırma, profesyonel sahne ve ses düzeni, geniş pist."
+                        % SALON["bolunme"],
+                        "salon-genel", "Salonun genel görünümü"),
         olcu_seridi(),
         bolum_ust("Galeri", "Salonu <em>yakından</em> görün",
                   "Fotoğrafa dokunarak büyütebilirsiniz."),
         galeri_html(GALERI),
+        alinti_bandi(),
         bolum_ust("Salon özellikleri", "Rahat bir gece için <em>gereken her şey</em>"),
         hizmet_gruplari(("Salon", "Servis", "Misafir rahatlığı")),
         cta("Salonu yerinde görün",
@@ -1174,9 +1237,8 @@ def kina_sayfasi():
                  '"description":"16 kalemlik kına gecesi paketi: kına tahtı ve cibinliği, '
                  'gelin bindallısı, kına kızları, davul şov ve müzik."}' % SITE)
     govde = """
-<div class="sar">%s</div>
 %s
-<section class="bolum bolum--ust-yok">
+<section class="bolum">
   <div class="sar belir vitrin">
     %s
     <div>
@@ -1187,10 +1249,10 @@ def kina_sayfasi():
     </div>
   </div>
 </section>
-<section class="bolum bolum--pudra">
+<section class="bolum bolum--gece">
   <div class="sar sar--dar">
     %s
-    <ul class="zaman">
+    <ul class="zaman belir">
       <li><b>01</b><span>Misafirler karşılama masasında ağırlanır, arkadaş kaftanları ve kına taçları dağıtılır.</span></li>
       <li><b>02</b><span>Gelin bindallısıyla, kına kızları eşliğinde ve davul şovla salona çıkar.</span></li>
       <li><b>03</b><span>Gelin kına tahtına oturur; tef ve halay mendilleriyle eğlence başlar.</span></li>
@@ -1199,10 +1261,10 @@ def kina_sayfasi():
   </div>
 </section>
 %s""" % (
-        kb,
-        ic_baslik("Kına organizasyonu", "Kına geceniz <em>hazır</em>",
-                  "Kına tahtından bindallıya, davul şovdan müziğe kadar geceyi baştan sona "
-                  "biz planlıyoruz. Size yalnızca misafirlerinizi çağırmak kalıyor."),
+        sayfa_kahramani(kb, "Kına organizasyonu", "Kına geceniz <em>hazır</em>",
+                        "Kına tahtından bindallıya, davul şovdan müziğe kadar geceyi baştan "
+                        "sona biz planlıyoruz. Size yalnızca misafirlerinizi çağırmak kalıyor.",
+                        "kina-tahti", "Kırmızı cibinlikli kına tahtı"),
         kina_gorselleri(), baklava(sol=True),
         "".join("<li>%s</li>" % kacir(k) for k in KINA_PAKETI),
         bolum_ust("Gecenin akışı", "Kına gecesi <em>nasıl ilerler</em>"),
@@ -1211,43 +1273,42 @@ def kina_sayfasi():
     return sayfa("Kına Organizasyonu Bahçelievler | Pınar Düğün Salonu",
                  "Bahçelievler'de kına gecesi organizasyonu: kına tahtı, bindallı, kına "
                  "kızları, davul şov ve müzik dahil 16 kalemlik hazır paket.",
-                 "/kina-organizasyonu/", govde, [kld, hizmet_ld], "/kina-organizasyonu/")
+                 "/kina-organizasyonu/", govde, [kld, hizmet_ld], "/kina-organizasyonu/",
+                 onyukle="kina-tahti")
 
 
 def menuler_sayfasi():
     kb, kld = kirinti([("Ana sayfa", "/"), ("Menüler", None)])
     govde = """
-<div class="sar">%s</div>
 %s
-<section class="bolum bolum--ust-yok">
+<section class="bolum bolum--pudra">
   <div class="sar">
     %s
-    <div class="ekler">%s</div>
+    <div class="ekler belir">%s</div>
   </div>
 </section>
 %s""" % (
-        kb,
-        ic_baslik("Menüler", "Yemekli ya da <em>kokteyl</em>",
-                  "İki yemekli ve üç pastalı menümüz var. İsteğe göre döner, ızgara ve ordövr "
-                  "tabağıyla genişletebilirsiniz."),
+        sayfa_kahramani(kb, "Menüler", "Yemekli ya da <em>kokteyl</em>",
+                        "İki yemekli ve üç pastalı menümüz var. İsteğe göre döner, ızgara ve "
+                        "ordövr tabağıyla genişletebilirsiniz.",
+                        "menu-tabagi", "Yemekli menü: tavuk sote, pilav, baklava ve salata"),
         menu_kartlari(), "".join("<p>%s</p>" % kacir(e) for e in MENU_EKLER),
         cta("Menünüzü birlikte seçelim",
             "Kişi sayısına ve tarihe göre fiyat bilgisi için arayın ya da yazın."))
     return sayfa("Düğün Menüleri | Pınar Düğün Salonu Bahçelievler",
                  "Pınar Düğün Salonu menüleri: kırmızı et ve beyaz et yemekli menüler, "
                  "pastalı ve dondurmalı pasta kokteyl menüleri. Bahçelievler.",
-                 "/menuler/", govde, [kld], "/menuler/")
+                 "/menuler/", govde, [kld], "/menuler/", onyukle="menu-tabagi")
 
 
 def hizmetler_sayfasi():
     kb, kld = kirinti([("Ana sayfa", "/"), ("Hizmetler", None)])
     govde = """
-<div class="sar">%s</div>
 %s
-<div class="sar ic-gorsel">%s</div>
-<section class="bolum bolum--ust-yok">
+<section class="bolum">
   <div class="sar">%s</div>
 </section>
+%s
 <section class="bolum bolum--pudra">
   <div class="sar">
     %s
@@ -1255,13 +1316,11 @@ def hizmetler_sayfasi():
   </div>
 </section>
 %s""" % (
-        kb,
-        ic_baslik("Hizmetler", "Salonda <em>neler var</em>",
-                  "Süslemeden fotoğrafa, gösteriden misafir rahatlığına kadar salonumuzda "
-                  "sunduğumuz hizmetler."),
-        resim("cicekli-sutunlar", "Gelin yolunu çevreleyen çiçek sütunları",
-              boyut="100vw", yukle="eager"),
-        hizmet_gruplari(),
+        sayfa_kahramani(kb, "Hizmetler", "Salonda <em>neler var</em>",
+                        "Süslemeden fotoğrafa, gösteriden misafir rahatlığına kadar "
+                        "salonumuzda sunduğumuz hizmetler.",
+                        "cicekli-sutunlar", "Gelin yolunu çevreleyen çiçek sütunları"),
+        hizmet_gruplari(), olcu_seridi(),
         bolum_ust("Organizasyonlar", "Hangi kutlama <em>olursa olsun</em>"),
         organizasyon_kartlari(), cta())
     return sayfa("Hizmetler | Pınar Düğün Salonu Bahçelievler",
@@ -1273,10 +1332,9 @@ def hizmetler_sayfasi():
 def iletisim_sayfasi():
     kb, kld = kirinti([("Ana sayfa", "/"), ("İletişim", None)])
     govde = """
-<div class="sar">%(kb)s</div>
 %(baslik)s
-<section class="bolum bolum--ust-yok">
-  <div class="sar iletisim">
+<section class="bolum">
+  <div class="sar iletisim belir">
     <div>
       <div class="iletisim__blok"><p class="iletisim__etiket">Cep / WhatsApp</p><a href="tel:%(tc)s">%(tcy)s</a></div>
       <div class="iletisim__blok"><p class="iletisim__etiket">Sabit hat</p><a href="tel:%(ts)s">%(tsy)s</a></div>
@@ -1293,9 +1351,10 @@ def iletisim_sayfasi():
   </div>
 </section>""" % {
         "kb": kb,
-        "baslik": ic_baslik("İletişim", "Bize <em>ulaşın</em>",
-                            "Fiyat ve boş tarih bilgisi için arayın ya da WhatsApp'tan yazın. "
-                            "Salonu görmek isterseniz gün belirleyelim."),
+        "baslik": sayfa_kahramani(kb, "İletişim", "Bize <em>ulaşın</em>",
+                                  "Fiyat ve boş tarih bilgisi için arayın ya da WhatsApp'tan "
+                                  "yazın. Salonu görmek isterseniz gün belirleyelim.",
+                                  "giris-merdiven", "Çiçekli salon girişi"),
         "tc": SALON["tel_cep"], "tcy": SALON["tel_cep_yazi"], "ts": SALON["tel_sabit"],
         "tsy": SALON["tel_sabit_yazi"], "ep": SALON["eposta"], "adres": SALON["adres_satir"],
         "bina": SALON["adres_bina"], "ilce": SALON["ilce"], "il": SALON["il"],
@@ -1304,7 +1363,7 @@ def iletisim_sayfasi():
     return sayfa("İletişim ve Yol Tarifi | Pınar Düğün Salonu Bahçelievler",
                  "Pınar Düğün Salonu iletişim: %s, %s. Kocasinan Merkez Mah. Mimar Sinan Cad. "
                  "No:7 Bahçelievler/İstanbul." % (SALON["tel_cep_yazi"], SALON["tel_sabit_yazi"]),
-                 "/iletisim/", govde, [kld, ld_mekan()], "/iletisim/")
+                 "/iletisim/", govde, [kld, ld_mekan()], "/iletisim/", onyukle="giris-merdiven")
 
 
 def kvkk_sayfasi():
