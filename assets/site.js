@@ -1,4 +1,5 @@
 (function () {
+  document.documentElement.classList.add('js');
   var y = document.getElementById('yil');
   if (y) y.textContent = new Date().getFullYear();
 
@@ -14,6 +15,50 @@
       }
     });
   }
+
+  // ---- kahraman slayti ----
+  var hareketAz = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slaytlar = document.querySelectorAll('.slayt');
+  if (slaytlar.length > 1 && !hareketAz) {
+    var s = 0;
+    setInterval(function () {
+      slaytlar[s].classList.remove('aktif');
+      s = (s + 1) % slaytlar.length;
+      slaytlar[s].classList.add('aktif');
+    }, 6500);
+  }
+
+  // ---- belirme + sayac (scroll dinleyici; IntersectionObserver'a bagli degil) ----
+  var belirler = [].slice.call(document.querySelectorAll('.belir'));
+  var sayilar = [].slice.call(document.querySelectorAll('[data-sayi]'));
+  function say(el) {
+    var hedef = +el.getAttribute('data-sayi'), t0 = Date.now(), sure = 1600;
+    if (hareketAz) return;
+    (function adim() {
+      var o = Math.min(1, (Date.now() - t0) / sure);
+      el.textContent = Math.round(hedef * (1 - Math.pow(1 - o, 3)));
+      if (o < 1) setTimeout(adim, 30);
+    })();
+  }
+  function bak() {
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    if (!h) { belirler.forEach(function (e) { e.classList.add('gorundu'); }); belirler = []; return; }
+    belirler = belirler.filter(function (e) {
+      if (e.getBoundingClientRect().top < h * 0.9) { e.classList.add('gorundu'); return false; }
+      return true;
+    });
+    sayilar = sayilar.filter(function (e) {
+      if (e.getBoundingClientRect().top < h * 0.95) { say(e); return false; }
+      return true;
+    });
+  }
+  var bekle = false;
+  window.addEventListener('scroll', function () {
+    if (bekle) return; bekle = true;
+    setTimeout(function () { bekle = false; bak(); }, 80);
+  }, { passive: true });
+  window.addEventListener('resize', bak);
+  bak();
 
   // ---- isik kutusu ----
   var linkler = [].slice.call(document.querySelectorAll('[data-kutu]'));

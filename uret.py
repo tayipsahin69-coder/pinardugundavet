@@ -284,6 +284,7 @@ def alt():
       <span>&copy; <span id="yil">%(bugun)s</span> %(tam)s</span>
       <a href="/kvkk/">KVKK aydınlatma metni</a>
     </div>
+    <div class="taftri-credit"><span class="taftri-credit__rozet"><span class="taftri-credit__etiket">DESIGNED BY</span><a href="https://taftri.com/" target="_blank" rel="noopener">Taftri Dijital</a></span></div>
   </div>
 </footer>
 <a class="wp" href="%(wp)s" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
@@ -505,7 +506,7 @@ h1 em,h2 em{font-style:italic;color:var(--altin)}
 .kahraman{position:relative;min-height:min(86vh,840px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--murekkep)}
 .kahraman__gorsel{position:absolute;inset:0}
 .kahraman__gorsel img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
-.kahraman::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,20,19,.62) 0%,rgba(21,20,19,.28) 48%,rgba(21,20,19,0) 76%),linear-gradient(180deg,rgba(21,20,19,.22) 0%,rgba(21,20,19,0) 34%,rgba(21,20,19,.6) 100%)}
+.kahraman::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,20,19,.72) 0%,rgba(21,20,19,.36) 50%,rgba(21,20,19,0) 76%),linear-gradient(180deg,rgba(21,20,19,.22) 0%,rgba(21,20,19,0) 34%,rgba(21,20,19,.6) 100%)}
 @media (max-width:760px){.kahraman::after{background:linear-gradient(180deg,rgba(21,20,19,.3) 0%,rgba(21,20,19,.25) 40%,rgba(21,20,19,.8) 100%)}}
 .kahraman__ic{position:relative;z-index:2;padding-block:120px 70px}
 .kahraman .ust-yazi{color:var(--pudra)}
@@ -688,9 +689,116 @@ h1 em,h2 em{font-style:italic;color:var(--altin)}
   .ic-gorsel{margin-bottom:64px}
   .menu{padding:32px 22px 28px}
 }
+/* =====================================================================
+   GOSTERIS KATMANI: slayt, altin parilti, serit, koyu bolum, belirme
+   ===================================================================== */
+:root{--altin-3:#E2C28A;--altin-4:#F6E7C8;--gece:#100F0E}
+.ust{border-top:3px solid transparent;border-image:linear-gradient(90deg,var(--altin),var(--altin-3),var(--altin)) 1}
+
+/* kahraman */
+.kahraman{min-height:calc(100svh - 76px)}
+.slayt{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease}
+.slayt.aktif{opacity:1}
+.slayt img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;transform:scale(1.02)}
+.slayt.aktif img{animation:yakinlas 9s ease-out forwards}
+@keyframes yakinlas{from{transform:scale(1.02)}to{transform:scale(1.14)}}
+.kahraman h1{font-size:clamp(46px,8vw,104px);text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.kahraman h1 em,.alinti em,.bolum--gece h2 em{
+  background:linear-gradient(100deg,var(--altin-3) 0%,var(--altin-4) 22%,#C9A36A 45%,var(--altin-4) 68%,var(--altin-3) 100%);
+  background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:parilti 7s linear infinite;padding-right:.06em;text-shadow:none}
+@keyframes parilti{from{background-position:100% 0}to{background-position:-150% 0}}
+.kahraman .ust-yazi{color:var(--altin-3)}
+.giris{opacity:0;transform:translateY(26px);animation:giris 1.1s cubic-bezier(.22,.61,.36,1) forwards}
+.giris--1{animation-delay:.15s}.giris--2{animation-delay:.35s}.giris--3{animation-delay:.6s}.giris--4{animation-delay:.85s}
+@keyframes giris{to{opacity:1;transform:none}}
+.kaydir{position:absolute;z-index:3;left:50%;bottom:22px;transform:translateX(-50%);width:30px;height:48px;border:1px solid rgba(255,255,255,.6);border-radius:999px}
+.kaydir span{position:absolute;left:50%;top:9px;width:3px;height:9px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:kaydir 1.8s ease-in-out infinite}
+@keyframes kaydir{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(16px)}}
+@media (max-width:760px){.kaydir{display:none}}
+
+/* butonlar */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .7s ease}
+.btn:hover::after{left:120%}
+.btn--altin{background:linear-gradient(120deg,#B8935A,#E2C28A 50%,#B8935A);background-size:200% 100%;border-color:transparent;color:var(--murekkep);transition:background-position .6s ease}
+.btn--altin:hover{background-position:100% 0;color:var(--murekkep);border-color:transparent}
+
+/* kayan serit */
+.serit{background:var(--gece);color:var(--altin-3);overflow:hidden;padding-block:20px;border-bottom:1px solid rgba(226,194,138,.25)}
+.serit__iz{display:flex;width:max-content;animation:serit 38s linear infinite}
+.serit__grup{display:flex;align-items:center;flex:none}
+.serit span{font-family:var(--baslik);font-style:italic;font-size:clamp(24px,3vw,36px);line-height:1;padding-inline:26px;white-space:nowrap}
+.serit i{width:8px;height:8px;transform:rotate(45deg);border:1px solid var(--altin-3);flex:none}
+@keyframes serit{to{transform:translateX(-50%)}}
+
+/* olcu seridi koyu */
+.olculer{background:var(--murekkep);color:#fff;border-bottom:0}
+.olcu+.olcu{border-left-color:rgba(255,255,255,.1)}
+@media (max-width:859px){.olcu:nth-child(-n+2){border-bottom-color:rgba(255,255,255,.1)}}
+.olcu b{color:var(--altin-3);font-size:clamp(40px,5vw,62px)}
+.olcu span{color:rgba(255,255,255,.66)}
+
+/* kartlar */
+.kart{transition:transform .5s cubic-bezier(.22,.61,.36,1),box-shadow .5s}
+.kart:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(21,20,19,.45)}
+.kart__gorsel{position:relative}
+.kart__gorsel::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.85);opacity:0;transform:scale(1.04);transition:opacity .5s,transform .5s}
+.kart:hover .kart__gorsel::after{opacity:1;transform:none}
+.kart h3{transition:color var(--gecis)}
+.kart:hover h3{color:var(--altin)}
+
+/* galeri */
+.galeri a::after{content:"+";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:300;color:#fff;background:rgba(21,20,19,.38);opacity:0;transition:opacity .45s}
+.galeri a:hover::after{opacity:1}
+
+/* alinti bandi */
+.alinti{position:relative;padding-block:clamp(110px,16vw,190px);text-align:center;color:#fff;background:#151413 url(/assets/img/salon-isik-1800.webp) center/cover fixed}
+.alinti::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(16,15,14,.55),rgba(16,15,14,.86))}
+.alinti__ic{position:relative}
+.alinti .baklava i{background:var(--altin-3)}
+.alinti .baklava i:nth-child(2){background:transparent;border-color:var(--altin-3)}
+.alinti__metin{font-family:var(--baslik);font-size:clamp(30px,4.6vw,60px);line-height:1.15;max-width:20ch;margin:0 auto;text-wrap:balance}
+.alinti__imza{margin-top:26px;font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+@media (hover:none){.alinti{background-attachment:scroll}}
+
+/* koyu bolum (kina) */
+.bolum--gece{background:var(--gece);color:#fff}
+.bolum--gece .ust-yazi{color:var(--altin-3)}
+.bolum--gece p{color:rgba(255,255,255,.76)}
+.bolum--gece .baklava i{background:var(--altin-3)}
+.bolum--gece .baklava i:nth-child(2){background:transparent;border-color:var(--altin-3)}
+.bolum--gece .vitrin__gorseller img{outline:1px solid rgba(226,194,138,.35);outline-offset:6px}
+
+/* cta */
+.cta{background:linear-gradient(135deg,#F4E3DF 0%,#FAF1EC 50%,#F1DCD5 100%);position:relative;overflow:hidden}
+.cta::before,.cta::after{content:"";position:absolute;width:340px;height:340px;border:1px solid rgba(138,106,60,.25);transform:rotate(45deg)}
+.cta::before{left:-170px;top:-170px}.cta::after{right:-170px;bottom:-170px}
+.cta__ic{position:relative}
+
+/* belirme (yalniz JS calisirsa gizlenir) */
+.js .belir{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1)}
+.js .belir.gorundu{opacity:1;transform:none}
+.js .kartlar .belir:nth-child(3n+2){transition-delay:.12s}
+.js .kartlar .belir:nth-child(3n){transition-delay:.24s}
+
+/* taftri rozeti */
+.taftri-credit{display:flex;justify-content:center;margin-top:26px}
+.taftri-credit__rozet{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.26);padding:7px 14px;border-radius:4px;line-height:1}
+.taftri-credit__etiket{font-size:10.5px;letter-spacing:.16em;opacity:.55}
+.alt .taftri-credit a{font-weight:700;font-size:15px;letter-spacing:.01em;color:#fff;border:0;min-height:0}
+.alt .taftri-credit a:hover{color:var(--altin-3)}
+@media (max-width:560px){.alt{padding-bottom:96px}}
+
+@media (prefers-reduced-motion:reduce){
+  .giris,.js .belir{opacity:1!important;transform:none!important}
+  .serit__iz{animation:none}
+}
+
 """
 
 BETIK = """(function () {
+  document.documentElement.classList.add('js');
   var y = document.getElementById('yil');
   if (y) y.textContent = new Date().getFullYear();
 
@@ -706,6 +814,50 @@ BETIK = """(function () {
       }
     });
   }
+
+  // ---- kahraman slayti ----
+  var hareketAz = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slaytlar = document.querySelectorAll('.slayt');
+  if (slaytlar.length > 1 && !hareketAz) {
+    var s = 0;
+    setInterval(function () {
+      slaytlar[s].classList.remove('aktif');
+      s = (s + 1) % slaytlar.length;
+      slaytlar[s].classList.add('aktif');
+    }, 6500);
+  }
+
+  // ---- belirme + sayac (scroll dinleyici; IntersectionObserver'a bagli degil) ----
+  var belirler = [].slice.call(document.querySelectorAll('.belir'));
+  var sayilar = [].slice.call(document.querySelectorAll('[data-sayi]'));
+  function say(el) {
+    var hedef = +el.getAttribute('data-sayi'), t0 = Date.now(), sure = 1600;
+    if (hareketAz) return;
+    (function adim() {
+      var o = Math.min(1, (Date.now() - t0) / sure);
+      el.textContent = Math.round(hedef * (1 - Math.pow(1 - o, 3)));
+      if (o < 1) setTimeout(adim, 30);
+    })();
+  }
+  function bak() {
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    if (!h) { belirler.forEach(function (e) { e.classList.add('gorundu'); }); belirler = []; return; }
+    belirler = belirler.filter(function (e) {
+      if (e.getBoundingClientRect().top < h * 0.9) { e.classList.add('gorundu'); return false; }
+      return true;
+    });
+    sayilar = sayilar.filter(function (e) {
+      if (e.getBoundingClientRect().top < h * 0.95) { say(e); return false; }
+      return true;
+    });
+  }
+  var bekle = false;
+  window.addEventListener('scroll', function () {
+    if (bekle) return; bekle = true;
+    setTimeout(function () { bekle = false; bak(); }, 80);
+  }, { passive: true });
+  window.addEventListener('resize', bak);
+  bak();
 
   // ---- isik kutusu ----
   var linkler = [].slice.call(document.querySelectorAll('[data-kutu]'));
@@ -774,7 +926,7 @@ def galeri_html(liste):
 
 def organizasyon_kartlari():
     return '<div class="kartlar">%s</div>' % "".join(
-        '<article class="kart"><div class="kart__gorsel">%s</div>'
+        '<article class="kart belir"><div class="kart__gorsel">%s</div>'
         '<div class="kart__ic"><h3>%s</h3><p>%s</p></div></article>'
         % (resim(g, b, boyut="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"),
            kacir(b), kacir(m)) for b, m, g in ORGANIZASYONLAR)
@@ -809,14 +961,34 @@ def kina_gorselleri():
 
 def olcu_seridi():
     return """
-<section class="olculer" aria-label="Kısaca salon">
+<section class="olculer" id="ozet" aria-label="Kısaca salon">
   <div class="sar olculer__izgara">
-    <div class="olcu"><b>%d</b><span>yıllık tecrübe</span></div>
-    <div class="olcu"><b>%d</b><span>kişilik salon</span></div>
-    <div class="olcu"><b>2</b><span>ayrı giriş</span></div>
-    <div class="olcu"><b>16</b><span>kalem kına paketi</span></div>
+    <div class="olcu"><b data-sayi="%d">%d</b><span>yıllık tecrübe</span></div>
+    <div class="olcu"><b data-sayi="%d">%d</b><span>kişilik salon</span></div>
+    <div class="olcu"><b data-sayi="2">2</b><span>ayrı giriş</span></div>
+    <div class="olcu"><b data-sayi="16">16</b><span>kalem kına paketi</span></div>
   </div>
-</section>""" % (YIL_TECRUBE, SALON["kapasite"])
+</section>""" % (YIL_TECRUBE, YIL_TECRUBE, SALON["kapasite"], SALON["kapasite"])
+
+
+def serit():
+    """Kayan altin serit: organizasyon turleri."""
+    kelime = ["Düğün", "Nişan", "Kına", "Sünnet", "Söz", "Davet", "Kokteyl", "Nikâh"]
+    tek = "".join("<span>%s</span><i></i>" % k for k in kelime)
+    return ('<div class="serit" aria-hidden="true"><div class="serit__iz">'
+            '<div class="serit__grup">%s</div><div class="serit__grup">%s</div>'
+            '</div></div>' % (tek, tek))
+
+
+def alinti_bandi():
+    return """
+<section class="alinti">
+  <div class="sar alinti__ic">
+    %s
+    <p class="alinti__metin">Hazırlıkların başladığı ilk günden <em>gecenin sonuna kadar</em> yanınızdayız.</p>
+    <p class="alinti__imza">Pınar Düğün &amp; Davet · %d'ten beri</p>
+  </div>
+</section>""" % (baklava(), SALON["kurulus_firma"])
 
 
 def ic_baslik(ust_yazi, baslik, metin=""):
@@ -832,7 +1004,7 @@ def ic_baslik(ust_yazi, baslik, metin=""):
 
 
 def bolum_ust(ust_yazi, baslik, metin=""):
-    return """<header class="bolum__ust">
+    return """<header class="bolum__ust belir">
       %s
       <p class="ust-yazi">%s</p>
       <h2>%s</h2>
@@ -848,22 +1020,28 @@ def ana_sayfa():
     sss_govde, sss_ld = sss_blok(SSS)
     govde = """
 <section class="kahraman">
-  <div class="kahraman__gorsel">%(kahraman)s</div>
+  <div class="kahraman__gorsel">
+    <div class="slayt aktif">%(kahraman)s</div>
+    <div class="slayt">%(slayt2)s</div>
+    <div class="slayt">%(slayt3)s</div>
+  </div>
   <div class="sar kahraman__ic">
-    <p class="ust-yazi">Bahçelievler · %(kur)d'ten beri</p>
-    <h1>En güzel gününüz <em>burada</em> başlasın.</h1>
-    <p class="kahraman__metin">%(kap)d kişilik salonumuzda düğün, nişan, kına, sünnet ve
+    <p class="ust-yazi giris giris--1">Bahçelievler · %(kur)d'ten beri</p>
+    <h1 class="giris giris--2">En güzel gününüz <em>burada</em> başlasın.</h1>
+    <p class="kahraman__metin giris giris--3">%(kap)d kişilik salonumuzda düğün, nişan, kına, sünnet ve
       davetlerinizi %(yil)d yıllık tecrübeyle ağırlıyoruz.</p>
-    <div class="eylem">
+    <div class="eylem giris giris--4">
       <a class="btn btn--acik" href="%(wp)s" target="_blank" rel="noopener">Tarih sorun</a>
       <a class="btn btn--cizgi" href="/salon/">Salonu görün</a>
     </div>
   </div>
+  <a class="kaydir" href="#ozet" aria-label="Aşağı kaydır"><span></span></a>
 </section>
+%(serit)s
 %(olcu)s
 
 <section class="bolum">
-  <div class="sar hikaye">
+  <div class="sar belir hikaye">
     <div class="hikaye__gorsel">%(hikaye)s</div>
     <div>
       %(bs)s
@@ -890,8 +1068,9 @@ def ana_sayfa():
   </div>
 </section>
 
-<section class="bolum">
-  <div class="sar vitrin">
+%(alinti)s
+<section class="bolum bolum--gece">
+  <div class="sar belir vitrin">
     %(kina_gorsel)s
     <div>
       %(bs)s
@@ -899,7 +1078,7 @@ def ana_sayfa():
       <h2>Kına geceniz <em>hazır</em>, siz sadece gelin</h2>
       <p>Kına tahtı ve cibinliğinden bindallıya, kına kızlarından davul şova kadar 16 kalemlik
         paketimizle geceyi baştan sona biz planlıyoruz.</p>
-      <div class="eylem"><a class="btn" href="/kina-organizasyonu/">Paketin tamamı</a></div>
+      <div class="eylem"><a class="btn btn--altin" href="/kina-organizasyonu/">Paketin tamamı</a></div>
     </div>
   </div>
 </section>
@@ -921,6 +1100,9 @@ def ana_sayfa():
 %(cta)s""" % {
         "kahraman": resim("gelin-yolu", "Kırmızı halı gelin yolu ve çiçekli beyaz sütunlar",
                           boyut="100vw", yukle="eager", oncelik=True),
+        "slayt2": resim("salon-isik", "Renkli tavan aydınlatması altında salon", boyut="100vw"),
+        "slayt3": resim("salon-genel", "Kristal orta süslemeli masalar ve pist", boyut="100vw"),
+        "serit": serit(),
         "kur": SALON["kurulus_salon"], "kurf": SALON["kurulus_firma"],
         "kap": SALON["kapasite"], "yil": YIL_TECRUBE, "wp": WHATSAPP,
         "olcu": olcu_seridi(),
@@ -931,6 +1113,7 @@ def ana_sayfa():
                              "ayrı girişlerle ikiye bölerek kullanın." % SALON["bolunme"]),
         "kartlar": organizasyon_kartlari(),
         "kina_gorsel": kina_gorselleri(),
+        "alinti": alinti_bandi(),
         "galeri_ust": bolum_ust("Salon", "Salondan <em>kareler</em>"),
         "galeri": galeri_html(GALERI[:7]),
         "sss_ust": bolum_ust("Sık sorulanlar", "Aklınızdaki <em>sorular</em>"),
@@ -994,7 +1177,7 @@ def kina_sayfasi():
 <div class="sar">%s</div>
 %s
 <section class="bolum bolum--ust-yok">
-  <div class="sar vitrin">
+  <div class="sar belir vitrin">
     %s
     <div>
       %s
